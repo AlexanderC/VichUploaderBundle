@@ -92,7 +92,7 @@ class Configuration implements ConfigurationInterface
                     ->useAttributeAsKey('id')
                     ->prototype('array')
                         ->children()
-                            ->scalarNode('base_url')->isRequired()->end()
+                            ->scalarNode('base_url')->defaultValue('')->end()
                             ->scalarNode('uri_prefix')->defaultValue('/uploads')->end()
                             ->scalarNode('upload_destination')->isRequired()->end()
                             ->scalarNode('namer')->defaultNull()->end()
