@@ -118,7 +118,7 @@ abstract class AbstractStorage implements StorageInterface
     /**
      * {@inheritDoc}
      */
-    public function resolveUri($obj, $field, $className = null)
+    public function resolveUri($obj, $field, $className = null, $absolute = false)
     {
         list($mapping, $filename) = $this->getFilename($obj, $field, $className);
 
@@ -126,7 +126,13 @@ abstract class AbstractStorage implements StorageInterface
             return '';
         }
 
-        return $mapping->getUriPrefix() . '/' . $mapping->getUploadDir($obj) . $filename;
+        $path = $mapping->getUriPrefix() . '/' . $mapping->getUploadDir($obj) . $filename;
+
+        if ($absolute) {
+            $path = $mapping->getBaseUrl() . $path;
+        }
+
+        return $path;
     }
 
     protected function getFilename($obj, $field, $className = null)

@@ -44,11 +44,12 @@ class UploaderHelper extends Helper
      * @param object $obj       The object.
      * @param string $field     The field.
      * @param string $className The object's class. Mandatory if $obj can't be used to determine it.
+     * @param bool $absolute    Indicates to generate absolute or relative path
      *
      * @return string The public asset path.
      */
-    public function asset($obj, $field, $className = null)
+    public function asset($obj, $field, $className = null, $absolute = false)
     {
-        return $this->storage->resolveUri($obj, $field, $className);
+        return $this->storage->resolveUri($obj, $field, $className, $absolute);
     }
 }

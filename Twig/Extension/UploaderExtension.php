@@ -62,11 +62,12 @@ class UploaderExtension extends \Twig_Extension
      * @param object $obj       The object.
      * @param string $field     The field.
      * @param string $className The object's class. Mandatory if $obj can't be used to determine it.
+     * @param bool $absolute    Indicates to generate absolute or relative path
      *
      * @return string The public path.
      */
-    public function asset($obj, $field, $className = null)
+    public function asset($obj, $field, $className = null, $absolute = false)
     {
-        return $this->helper->asset($obj, $field, $className);
+        return $this->helper->asset($obj, $field, $className, $absolute);
     }
 }
