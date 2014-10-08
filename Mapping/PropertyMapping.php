@@ -288,6 +288,16 @@ class PropertyMapping
     }
 
     /**
+     * Get base_url
+     *
+     * @return string
+     */
+    public function getBaseUrl()
+    {
+        return $this->mapping['base_url'];
+    }
+
+    /**
      * Get uri prefix
      *
      * @return string
